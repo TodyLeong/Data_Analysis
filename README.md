@@ -75,21 +75,21 @@ This analysis was conducted using **Python** and **R**.
 1. **Spending Score Distribution**:
    - A histogram showed that a **spending score of 50** was the most frequent. The boxplot indicated a **lower quartile (Q1)** of **32**, a **median** of **50**, and an **upper quartile (Q3)** of **73**, showing moderate variability in spending scores.
 
-   ![Histogram of Spending Score](Figure1.png)
-   ![Boxplot of Spending Score](Figure2.png)
+   ![Histogram of Spending Score](Picture1.png)
+   ![Boxplot of Spending Score](Picture2.png)
 
 2. **Decision Tree Analysis**:
    - The decision tree model identified **spending score** as a primary driver influencing other variables like **remuneration** and **loyalty points**.
 
-   ![Decision Tree](Figure3.png)
+   ![Decision Tree](Picture3.png)
 
 3. **Age and Remuneration Distributions**:
    - The age group **35-45** was most common, with **Q1 = 29**, **median = 38**, and **Q3 = 49**. For remuneration, the most frequent range was **35-45K**, with a **Q1** of **30.34K**, **median of 47.15K**, and **Q3 of 63.96K**.
 
-   ![Histogram of Age](Figure5.png)
-   ![Boxplot of Age](Figure4.png)
-   ![Histogram of Remuneration](Figure6.png)
-   ![Boxplot of Remuneration](Figure7.png)
+   ![Histogram of Age](Picture5.png)
+   ![Boxplot of Age](Picture4.png)
+   ![Histogram of Remuneration](Picture6.png)
+   ![Boxplot of Remuneration](Picture7.png)
 
 4. **Customer Segmentation via K-Means Clustering**:
    - **K-means clustering (k = 5)** segmented customers based on spending and remuneration:
@@ -104,12 +104,12 @@ This analysis was conducted using **Python** and **R**.
 5. **Word Frequency in Reviews and Summaries**:
    - **NLP analysis** showed frequent terms like **"game"**, **"stars"**, **"fun"**, and **"great"**, highlighting aspects valued by customers.
 
-   ![Word Clouds for Most Common Words in Reviews and Summaries](Figure8.png)
+   ![Word Clouds for Most Common Words in Reviews and Summaries](Picture8.png)
 
 6. **Sentiment Analysis**:
    - Sentiment analysis indicated a generally **neutral to positive** tone, with most frequent values around **0.0** to **0.25**.
 
-   ![Histogram of Sentiment Polarity](Figure9.png)
+   ![Histogram of Sentiment Polarity](Picture9.png)
 
 ## Patterns and Predictions
 
@@ -118,22 +118,23 @@ This analysis was conducted using **Python** and **R**.
 1. **Loyalty Points Analysis**:
    - Boxplot analysis showed **Q1 = 772**, **median = 1276**, and **Q3 = 1751**, with a right-skewed distribution and higher kurtosis, indicating extreme values.
 
-   ![Boxplot of Loyalty Points](Figure10.png)
+   ![Boxplot of Loyalty Points](Picture11.png)
+   
 
-2. **Regression Analysis for Loyalty Points**:
+3. **Regression Analysis for Loyalty Points**:
    - **Age**: Minimal impact on loyalty points, with **R-squared = 0.0018** and a negative coefficient of **-4.0128**, suggesting an insignificant effect.
      
-     ![Relationship between Age and Loyalty Points](Figure12.png)
+     ![Relationship between Age and Loyalty Points](Picture12.png)
 
    - **Remuneration**: Positive correlation, with **R-squared = 0.3795**, indicating that increased remuneration leads to approximately **34.19** more loyalty points per unit increase.
 
-     ![Relationship between Remuneration and Loyalty Points](Figure13.png)
+     ![Relationship between Remuneration and Loyalty Points](Picture13.png)
 
    - **Spending Score**: Positive correlation, with **R-squared = 0.4520**, predicting an increase of approximately **33.06** loyalty points per unit increase in spending score.
 
-     ![Relationship between Spending Score and Loyalty Points](Figure14.png)
+     ![Relationship between Spending Score and Loyalty Points](Picture14.png)
 
-3. **Customer Retention Strategies**:
+4. **Customer Retention Strategies**:
    - Encourage customers to increase loyalty points through higher **remuneration** or **spending score**, using targeted incentives to boost engagement.
 
 ## Recommendations
