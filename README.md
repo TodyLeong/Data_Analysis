@@ -1,152 +1,106 @@
-# Turtle Games Customer Analysis
+# Key Insights and Visualisation Summary
 
-## Overview
-This project aims to analyse Turtle Games' customer data, including sales and customer reviews, to evaluate customer engagement with loyalty points, understand customer segmentation, and utilise customer feedback for improved marketing campaigns. By leveraging customer review data and segmentation strategies, Turtle Games intends to refine their marketing approach, enhance customer retention, and optimise sales performance.
+## Patterns, Trends, and Insights
 
-## Business Background and Key Questions
-**Turtle Games** is a global manufacturer and retailer of gaming products, offering a diverse range of gaming products. The company collects and analyses sales and customer review data to understand customer behaviour and improve business performance. This analysis aims to address the following key areas:
+### 1. Spending Score Distribution
+- The histogram showed that a **spending score of 50** was the most frequent among customers.
+- The boxplot indicated that the **lower quartile (Q1)** was **32**, the **median** was **50**, and the **upper quartile (Q3)** was **73**. This indicates moderate variability in the spending scores of customers.
 
-- **Customer Loyalty Points Analysis**: Determine factors influencing loyalty points, such as age, income, and spending habits, to optimise loyalty programs.
-- **Customer Segmentation for Marketing**: Identify distinct customer groups through segmentation to tailor marketing campaigns effectively.
-- **Customer Feedback Analysis**: Use Natural Language Processing (NLP) techniques to understand customer reviews and improve satisfaction.
+![Histogram of Spending Score](Picture1.png) ![Boxplot of Spending Score](Picture2.png)
 
-## Data Cleaning and Preparation
-### Steps Taken:
-1. **Initial Data Exploration**
-   - Imported the `turtle_reviews` dataset into Python for initial data cleaning and exploration.
-   - Conducted descriptive statistics (`data.describe()`) and metadata analysis (`data.info()`) to understand the central tendencies, dispersion, and data distribution, ensuring reliability.
 
-2. **Removing Unnecessary Columns**
-   - Removed columns such as **"language"** and **"platform"** that were deemed unnecessary for the analysis to improve data clarity.
 
-3. **Handling Missing Values**
-   - Addressed missing values by appropriate imputation techniques to ensure data consistency and quality.
+### 2. Decision Tree Analysis
+- The decision tree model identified **spending score** as the primary influencing factor for predicting other variables, such as **remuneration** and **loyalty points**.
 
-## Data Analysis Approach
-### Tools and Libraries
-This analysis was conducted using **Python** and **R**.
+![Decision Tree](Picture3.png)
 
-#### Libraries Used in Python
-- **Pandas (`pd`)** and **NumPy (`np`)**: 
-  - For data manipulation, numerical computations, and normalisation.
+### 3. Age and Remuneration Distributions
+- The most common age group was **35-45**, with **Q1 = 29**, a **median = 38**, and **Q3 = 49**.
+- For remuneration, the most frequent range was **35-45K**, with **Q1 = 30.34K**, a **median = 47.15K**, and **Q3 = 63.96K**.
 
-- **Matplotlib (`plt`)** and **Seaborn (`sns`)**: 
-  - For data visualisations, including histograms, boxplots, scatterplots, and regression plots.
+**Key Insights from Age and Remuneration Plots:**
+- The histogram for age showed that customers primarily fall within the **35-45** range, indicating that middle-aged individuals are the largest group.
+- The remuneration histogram indicated that income levels are most often between **35-45K**, giving insight into the spending capacity of the customer base.
 
-- **Scikit-Learn (`sklearn`)**:
-  - **`LinearRegression`, `DecisionTreeRegressor`, `KMeans`**: For building regression models, decision trees, and clustering.
-  - **`OneHotEncoder`, `train_test_split`**: For encoding categorical data and splitting datasets.
-  - **`mean_squared_error, mean_absolute_error, r2_score, silhouette_score`**: To evaluate model performance.
-  - **`CountVectorizer`**: For vectorising text data in NLP analysis.
+![Histogram of Age](Picture5.png) ![Histogram of Remuneration](Picture6.png)
 
-- **Statsmodels (`sm`)**:
-  - **`ols`**: For Ordinary Least Squares regression models.
-  - **`variance_inflation_factor` (VIF)**: To assess multicollinearity.
 
-- **Natural Language Processing**:
-  - **NLTK**: For text tokenisation and stopword removal.
-  - **TextBlob**: For sentiment analysis.
-  - **WordCloud**: To create word frequency visualisations.
 
-- **Other Tools**:
-  - **`string`**: For text processing.
-  - **`warnings`**: To suppress unnecessary warnings.
+### 4. Customer Segmentation via K-Means Clustering
+- **K-means clustering (k = 5)** successfully segmented customers based on spending and remuneration:
+  - **Cluster 0** (774 customers): Medium remuneration & spending score.
+  - **Cluster 1** (269 customers): Low remuneration & high spending score.
+  - **Cluster 2** (356 customers): High remuneration & high spending score.
+  - **Cluster 3** (271 customers): Low remuneration & low spending score.
+  - **Cluster 4** (330 customers): High remuneration & low spending score.
+ 
+  - ![K-Means Clustering](Picture10.png)
 
-#### Libraries Used in R
-- **ggplot2**:
-  - For visualising data distributions through histograms, boxplots, and scatterplots.
-  
-- **dplyr**: 
-  - For data wrangling and summarisation.
+These clusters provide an opportunity for targeted marketing strategies, allowing us to cater to the specific needs of each group.
 
-- **moments**:
-  - To measure **skewness** and **kurtosis** of data distributions, helping assess whether the data is normally distributed or exhibits significant deviations.
+### 5. Word Frequency in Reviews and Summaries
+- An **NLP analysis** of customer reviews highlighted frequent terms like **"game"**, **"fun"**, and **"great"**, revealing what customers value most.
 
-- **car**:
-  - For calculating the **Variance Inflation Factor (VIF)**, which helps detect multicollinearity in the multiple linear regression model.
+![Word Clouds for Most Common Words in Reviews and Summaries](Picture11.png)
 
-- **stats** (Base R):
-  - For conducting normality tests (`shapiro.test`), creating **Q-Q plots** (`qqnorm`, `qqline`), and building **linear regression models** (`lm`). Also used for **correlation** analysis (`cor`) between variables.
+### 6. Sentiment Analysis
+- The sentiment analysis indicated a generally **neutral to positive** tone across customer reviews, with most sentiment polarity values ranging from **0.0** to **0.25**.
 
-## Key Insights and Visualisation Summary
+![Histogram of Sentiment Polarity](Picture12.png)
 
-### Patterns, Trends, and Insights
-
-1. **Spending Score Distribution**:
-   - A histogram showed that a **spending score of 50** was the most frequent. The boxplot indicated a **lower quartile (Q1)** of **32**, a **median** of **50**, and an **upper quartile (Q3)** of **73**, showing moderate variability in spending scores.
-
-   ![Histogram of Spending Score](Picture1.png)
-   ![Boxplot of Spending Score](Picture2.png)
-
-2. **Decision Tree Analysis**:
-   - The decision tree model identified **spending score** as a primary driver influencing other variables like **remuneration** and **loyalty points**.
-
-   ![Decision Tree](Picture3.png)
-
-3. **Age and Remuneration Distributions**:
-   - The age group **35-45** was most common, with **Q1 = 29**, **median = 38**, and **Q3 = 49**. For remuneration, the most frequent range was **35-45K**, with a **Q1** of **30.34K**, **median of 47.15K**, and **Q3 of 63.96K**.
-
-   ![Histogram of Age](Picture5.png)
-   ![Boxplot of Age](Picture4.png)
-   ![Histogram of Remuneration](Picture6.png)
-   ![Boxplot of Remuneration](Picture7.png)
-
-4. **Customer Segmentation via K-Means Clustering**:
-   - **K-means clustering (k = 5)** segmented customers based on spending and remuneration:
-     - **Cluster 0** (774): Medium remuneration & spending score.
-     - **Cluster 1** (269): Low remuneration & high spending score.
-     - **Cluster 2** (356): High remuneration & spending score.
-     - **Cluster 3** (271): Low remuneration & spending score.
-     - **Cluster 4** (330): High remuneration & low spending score.
-
-   These insights help target specific segments with tailored marketing strategies.
-
-5. **Word Frequency in Reviews and Summaries**:
-   - **NLP analysis** showed frequent terms like **"game"**, **"stars"**, **"fun"**, and **"great"**, highlighting aspects valued by customers.
-
-   ![Word Clouds for Most Common Words in Reviews and Summaries](Picture8.png)
-
-6. **Sentiment Analysis**:
-   - Sentiment analysis indicated a generally **neutral to positive** tone, with most frequent values around **0.0** to **0.25**.
-
-   ![Histogram of Sentiment Polarity](Picture9.png)
+---
 
 ## Patterns and Predictions
 
 ### Key Findings on Loyalty Points
 
-1. **Loyalty Points Analysis**:
-   - Boxplot analysis showed **Q1 = 772**, **median = 1276**, and **Q3 = 1751**, with a right-skewed distribution and higher kurtosis, indicating extreme values.
+#### 1. Loyalty Points Distribution
+- The boxplot for loyalty points showed:
+  - **Q1 = 772**
+  - **Median = 1276**
+  - **Q3 = 1751**
+  - Distribution is right-skewed with high kurtosis, suggesting significant extremes—many customers have either very high or very low loyalty points.
 
-   ![Boxplot of Loyalty Points](Picture11.png)
-   
+![Boxplot of Loyalty Points](Picture13.png) 
 
-3. **Regression Analysis for Loyalty Points**:
-   - **Age**: Minimal impact on loyalty points, with **R-squared = 0.0018** and a negative coefficient of **-4.0128**, suggesting an insignificant effect.
-     
-     ![Relationship between Age and Loyalty Points](Picture12.png)
+![Q-Q Plot of Loyalty Points](Picture14.png)
 
-   - **Remuneration**: Positive correlation, with **R-squared = 0.3795**, indicating that increased remuneration leads to approximately **34.19** more loyalty points per unit increase.
+#### 2. Regression Analysis for Loyalty Points
 
-     ![Relationship between Remuneration and Loyalty Points](Picture13.png)
+- **Impact of Age**:
+  - Minimal effect on loyalty points with **R-squared = 0.0018** and a negative coefficient of **-4.0128**, suggesting that age does not significantly affect loyalty accumulation.
 
-   - **Spending Score**: Positive correlation, with **R-squared = 0.4520**, predicting an increase of approximately **33.06** loyalty points per unit increase in spending score.
+  ![Relationship between Age and Loyalty Points](Picture15.png)
 
-     ![Relationship between Spending Score and Loyalty Points](Picture14.png)
+- **Impact of Remuneration**:
+  - Positive correlation between remuneration and loyalty points with **R-squared = 0.3795**. Each unit increase in remuneration is associated with approximately **34.19** more loyalty points.
 
-4. **Customer Retention Strategies**:
-   - Encourage customers to increase loyalty points through higher **remuneration** or **spending score**, using targeted incentives to boost engagement.
+  ![Relationship between Remuneration and Loyalty Points](Picture16.png)
+
+- **Impact of Spending Score**:
+  - Spending score showed a positive correlation with loyalty points with an **R-squared = 0.4520**. An increase in spending score is associated with an increase of **33.06** loyalty points, indicating greater loyalty for more engaged, high-spending customers.
+
+  ![Relationship between Spending Score and Loyalty Points](Picture17.png)
+
+### 3. Customer Retention Strategies
+- **Key Takeaway**: Positive relationships between **remuneration**, **spending score**, and **loyalty points** reveal opportunities for enhancing customer loyalty through targeted incentives aimed at customers with higher remuneration and spending scores.
 
 ## Recommendations
 
-1. **Tailored Marketing Strategies**:
-   - Implement **cluster-specific marketing** strategies based on segmentation results to optimise loyalty programs effectively.
+### 1. Tailored Marketing Strategies
+- Develop and implement **cluster-specific marketing** strategies based on the segmentation results to optimise loyalty programmes effectively.
+  - Example: Offer exclusive rewards for **Cluster 2** (high remuneration & high spending).
+  - Design incentive programmes for **Cluster 3** to encourage higher spending.
 
-2. **Enhance Product Messaging**:
-   - Use insights from **customer feedback**, such as common words like "Game," "Great," and "Fun," to refine marketing campaigns that resonate with customer values.
+### 2. Enhance Product Messaging
+- Use insights from **customer feedback** (e.g., words like "Game," "Great," "Fun") in marketing campaigns to align with customer expectations and increase campaign effectiveness.
 
-3. **Drive Loyalty through Targeted Promotions**:
-   - Offer personalised promotions to **high-potential customers** based on remuneration and spending score to increase loyalty points and drive engagement.
+### 3. Drive Loyalty through Targeted Promotions
+- Offer personalised promotions to **high-potential customers** based on their remuneration and spending scores. Such promotions can be instrumental in increasing loyalty points and boosting overall customer engagement.
 
-4. **Consideration of Data Distribution in Modelling**:
-   - Given the non-normal distribution of loyalty points, consider alternative models or data transformations to enhance predictive accuracy.
+### 4. Consideration of Data Distribution in Modeling
+- Given the non-normal distribution of loyalty points, consider:
+  - **Data transformations** (e.g., log or square root transformations) to improve predictive model performance.
+  - Alternatively, use **non-parametric models** that are more robust to skewed distributions.
+
